@@ -1,0 +1,26 @@
+{
+  "name": "travel-planner-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:create": "createdb plans",
+    "db:destroy": "dropdb plans",
+    "db:init": "psql -f schema.sql plans",
+    "db:seed": "psql -f seed.sql plans",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init && npm run db:seed",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "pg-promise": "^10.9.5",
+    "slugify": "^1.4.7"
+  }
+}
