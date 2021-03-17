@@ -3,6 +3,7 @@
 const express = require('express');
 const router = express.Router();
 const plansModel = require('../models/plansModel');
+const slugify = require('slugify');
 
 
 router.get('/', async (req, res) => {
@@ -31,8 +32,37 @@ router.post('/', async (req, res) => {
         strict: true
     });
 
-    const response = await plansModel.addEntry(slug, location, day, activity);
-    console.log('post data response is', response);
+    const responseLocation = await plansModel.addLocation(slug, location);
+    console.log('post data response is', responseLocation);
+    if(responseLocation.rowCount >= 1) {
+        res.redirect('/plans')
+    }
+    else {
+        res.sendStatus(500);
+    }
+    
+    const responseDayActivity = await plansModel.addDayActivity(day, activity);
+    console.log('post data response is', responseDayActivity);
+    if(responseDayActivity.rowCount >= 1) {
+        res.redirect('/plans')
+    }
+    else {
+        res.sendStatus(500);
+    }
+});
+
+router.post('/delete', async (req, res) => {
+    const { location_id } = req.body;
+
+    const plan = new plansModel(location_id);
+    const response = await plan.deleteEntry();
+    console.log('Delete response is', response);
+    if(response.rowCount >= 1) {
+        res.redirect('/plans');
+    }
+    else {
+        res.sendStatus(500);
+    }
 });
 
 

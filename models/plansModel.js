@@ -21,10 +21,17 @@ class plansModel {
         return response;
     }
 
-    static async addEntry(slug, location, day, activity) {
-        const response = await db.result(`INSERT INTO plans (slug, location, day, activity) 
-        VALUES ($1, $2, $3, $4)`, 
-        [slug, location, day, activity]);
+    static async addLocation(slug, location) {
+        const response = await db.result(`INSERT INTO plans (slug, location) 
+        VALUES ($1, $2)`, 
+        [slug, location]);
+        return response;
+    }
+
+    static async addDayActivity(day, activity) {
+        const response = await db.result(`INSERT INTO plans (day, activity)
+        VALUES ($1, $2)`,
+        [day, activity]);
         return response;
     }
 }
