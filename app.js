@@ -23,6 +23,8 @@ server.listen(port, hostname, () => {
 
 
 const rootController = require('./routes/index');
+const plansController = require('./routes/plans');
 
 
 app.use('/', rootController);
+app.use('/plans', plansController);
