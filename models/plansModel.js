@@ -3,28 +3,14 @@
 const db = require('./conn');
 
 class plansModel {
-    constructor(id, slug, location, day, activity) {
+    constructor(id, day, activity) {
         this.id = id;
-        this.slug = slug;
-        this.location = location;
         this.day = day;
         this.activity = activity;
     }
 
-    static async getAll() {
+    static async getAllPlans() {
         const response = await db.any(`SELECT * FROM plans;`);
-        return response;
-    }
-
-    static async getBySlug(slug) {
-        const response = await db.one(`SELECT * FROM plans WHERE slug = '${slug}';`)
-        return response;
-    }
-
-    static async addLocation(slug, location) {
-        const response = await db.result(`INSERT INTO plans (slug, location) 
-        VALUES ($1, $2)`, 
-        [slug, location]);
         return response;
     }
 
