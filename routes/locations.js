@@ -23,7 +23,7 @@ router.get('/:slug', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { location, day, activity } = req.body;
+    const { location } = req.body;
     const slug = slugify(location, {
         replacement: '_',
         lower: true,
@@ -33,30 +33,7 @@ router.post('/', async (req, res) => {
     const responseLocation = await locationsModel.addLocation(slug, location);
     console.log('post data response is', responseLocation);
     if(responseLocation.rowCount >= 1) {
-        res.redirect('/plans')
-    }
-    else {
-        res.sendStatus(500);
-    }
-    
-    const responseDayActivity = await plansModel.addDayActivity(day, activity);
-    console.log('post data response is', responseDayActivity);
-    if(responseDayActivity.rowCount >= 1) {
-        res.redirect('/plans')
-    }
-    else {
-        res.sendStatus(500);
-    }
-});
-
-router.post('/delete', async (req, res) => {
-    const { location_id } = req.body;
-
-    const plan = new plansModel(location_id);
-    const response = await plan.deleteEntry();
-    console.log('Delete response is', response);
-    if(response.rowCount >= 1) {
-        res.redirect('/plans');
+        res.redirect('/locations')
     }
     else {
         res.sendStatus(500);

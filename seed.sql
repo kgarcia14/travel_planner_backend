@@ -6,28 +6,28 @@ VALUES
 ('miami', 'Miami');
 
 INSERT INTO plans
-(day, activity, location_id)
+(day, activity, slug)
 VALUES
-('Sunday', 'Boston Activity', 1),
-('Monday', 'Boston Activity', 1),
-('Tuesday', 'Boston Activity', 1),
-('Wednesday', 'Boston Activity', 1),
-('Thursday', 'Boston Activity', 1),
-('Friday', 'Boston Activity', 1),
-('Saturday', 'Boston Activity', 1),
+(0, 'Boston Activity', 'boston'),
+(1, 'Boston Activity', 'boston'),
+(2, 'Boston Activity', 'boston'),
+(3, 'Boston Activity', 'boston'),
+(4, 'Boston Activity', 'boston'),
+(5, 'Boston Activity', 'boston'),
+(6, 'Boston Activity', 'boston'),
 
-('Sunday', 'Puerto Rico Activity', 2),
-('Monday', 'Puerto Rico Activity', 2),
-('Tuesday', 'Puerto Rico Activity', 2),
-('Wednesday', 'Puerto Rico Activity', 2),
-('Thursday', 'Puerto Rico Activity', 2),
-('Friday', 'Puerto Rico Activity', 2),
-('Saturday', 'Puerto Rico Activity', 2),
+(0, 'Puerto Rico Activity', 'puerto_rico'),
+(1, 'Puerto Rico Activity', 'puerto_rico'),
+(2, 'Puerto Rico Activity', 'puerto_rico'),
+(3, 'Puerto Rico Activity', 'puerto_rico'),
+(4, 'Puerto Rico Activity', 'puerto_rico'),
+(5, 'Puerto Rico Activity', 'puerto_rico'),
+(6, 'Puerto Rico Activity', 'puerto_rico'),
 
-('Sunday', 'Miami Activity', 3),
-('Monday', 'Miami Activity', 3),
-('Tuesday', 'Miami Activity', 3),
-('Wednesday', 'Miami Activity', 3),
-('Thursday', 'Miami Activity', 3),
-('Friday', 'Miami Activity', 3),
-('Saturday', 'Miami Activity', 3);
+(0, 'Miami Activity', 'miami'),
+(1, 'Miami Activity', 'miami'),
+(2, 'Miami Activity', 'miami'),
+(3, 'Miami Activity', 'miami'),
+(4, 'Miami Activity', 'miami'),
+(5, 'Miami Activity', 'miami'),
+(6, 'Miami Activity', 'miami');
