@@ -6,7 +6,7 @@ CREATE TABLE locations (
 
 CREATE TABLE plans (
     id serial PRIMARY KEY,
-    day integer NOT NULL,
+    day text NOT NULL,
     activity text NOT NULL,
     slug text REFERENCES locations (slug)
 );
